@@ -22,13 +22,13 @@ const Dashboard = () => {
 
     useEffect(() => {
         apicall();
-    }, [value]);
+    }, []);
 
     return (
         <div>
             <Appbar />
             <div className="m-8">
-                <Balance value={value} />
+                <Balance value={parseFloat(value).toFixed(2)} />
                 <Users />
             </div>
         </div>

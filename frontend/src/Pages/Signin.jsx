@@ -29,9 +29,9 @@ const Signin = () => {
   };
 
   return (
-    <div className="bg-slate-300 h-screen flex justify-center">
-      <div className="flex flex-col justify-center">
-        <div className="rounded-lg bg-white w-100 p-2 h-max px-4">
+    <div className="bg-slate-300 h-screen flex justify-center items-center">
+      <div className="flex flex-col justify-center w-full max-w-md p-4">
+        <div className="rounded-lg bg-white shadow-lg p-6">
           <Heading heading="Sign In" />
           <SubHeading subheading="Enter your credentials to access your account" />
           <InputTab onChange={(e) => setEmail(e.target.value)} title="Email" placeholder="johndoe@example.com" />

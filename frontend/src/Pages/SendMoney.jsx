@@ -21,7 +21,7 @@ const SendMoney = () => {
                 }
             });
             alert("Transfer successful!");
-            setIsTransferred(true); // Mark transfer as successful
+            setIsTransferred(true);
         } catch (error) {
             console.error("Error during transfer:", error);
             alert("Transfer failed. Please try again.");
@@ -36,17 +36,16 @@ const SendMoney = () => {
         }
     };
 
-    // useEffect to navigate after transfer is successful
     useEffect(() => {
         if (isTransferred) {
             navigate('/dashboard');
         }
-    }, [isTransferred, navigate]); // Added 'navigate' to the dependency array
+    }, [isTransferred, navigate]);
 
     return (
         <div className="flex justify-center h-screen bg-gray-100">
             <div className="h-full flex flex-col justify-center">
-                <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
+                <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-11/12 mx-auto bg-white shadow-lg rounded-lg">
                     <div className="flex flex-col space-y-1.5 p-6">
                         <h2 className="text-3xl font-bold text-center">Send Money</h2>
                     </div>
@@ -71,11 +70,12 @@ const SendMoney = () => {
                                     className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
                                     id="amount"
                                     placeholder="Enter amount"
+                                    min="1"
                                 />
                             </div>
                             <button
                                 onClick={handleClick}
-                                className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
+                                className="justify-center rounded-md text-sm font-medium transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
                                 Initiate Transfer
                             </button>
                         </div>

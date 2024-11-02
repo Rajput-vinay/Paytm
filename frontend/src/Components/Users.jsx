@@ -10,7 +10,7 @@ const Users = () => {
         const fetchUsers = async () => {
             try {
                 const response = await axios.get(`http://localhost:3000/api/v1/user/bulk`, {
-                    params: { filter },  // Use axios 'params' for query parameters
+                    params: { filter }, 
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token")
                     }
@@ -52,6 +52,16 @@ const Users = () => {
                     <p>No users found.</p> 
                 )}
             </div>
+            <style jsx>{`
+                @media (max-width: 768px) {
+                    .font-bold {
+                        font-size: 1.5rem;
+                    }
+                    input {
+                        padding: 0.5rem;
+                    }
+                }
+            `}</style>
         </>
     );
 };
