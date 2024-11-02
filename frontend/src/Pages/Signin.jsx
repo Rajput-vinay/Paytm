@@ -39,7 +39,7 @@ const Signin = () => {
           <div className="pt-4">
             <Button onClick={handleSignin} btnTitle="Sign In" />
           </div>
-          <Footer label="Don't have an account?" buttonText="Sign Up" to="/signup" />
+          <Footer label="Don't have an account?" buttonText="Sign Up" to="/" />
         </div>
       </div>
     </div>
