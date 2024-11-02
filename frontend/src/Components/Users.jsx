@@ -9,7 +9,7 @@ const Users = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/v1/user/bulk`, {
+                const response = await axios.get(`https://paytm-u5jl.onrender.com/api/v1/user/bulk`, {
                     params: { filter }, 
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token")
