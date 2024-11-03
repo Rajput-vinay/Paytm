@@ -7,7 +7,7 @@ import SubHeading from "../Components/SubHeading";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signin = () => 
+const Signin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Signin = () =>
   const handleSignin = async () => {
     // Check for empty input fields
     if (!username || !password) {
-      alert("Please enter both email and password.");
+      alert("Please enter both username and password.");
       return;
     }
 
@@ -49,7 +49,7 @@ const Signin = () =>
           <SubHeading subheading="Enter your credentials to access your account" />
           <InputTab 
             onChange={(e) => setUsername(e.target.value)} 
-            title="username" 
+            title="Username" 
             placeholder="johndoe@example.com" 
             value={username}
           />
