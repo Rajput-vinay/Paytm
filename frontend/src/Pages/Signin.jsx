@@ -13,17 +13,30 @@ const Signin = () => {
   const navigate = useNavigate();
 
   const handleSignin = async () => {
+    // Check for empty input fields
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return;
+    }
+
     try {
       const response = await axios.post("https://paytm-u5jl.onrender.com/api/v1/user/signin", {
         email,
         password,
       });
-      // Store the token in local storage
-      localStorage.setItem("token", response.data.token);
-      // Navigate to dashboard
-      navigate("/dashboard");
+
+      // Check if the response contains a token
+      if (response.data.token) {
+        // Store the token in local storage
+        localStorage.setItem("token", response.data.token);
+        // Navigate to dashboard
+        navigate("/dashboard");
+      } else {
+        alert("Sign-in failed. Token not found in response.");
+      }
     } catch (error) {
-      console.error("Error during sign-in:", error);
+      // Improved error logging
+      console.error("Error during sign-in:", error.response || error);
       alert("Sign-in failed. Please check your credentials and try again.");
     }
   };
@@ -34,8 +47,19 @@ const Signin = () => {
         <div className="rounded-lg bg-white shadow-lg p-6">
           <Heading heading="Sign In" />
           <SubHeading subheading="Enter your credentials to access your account" />
-          <InputTab onChange={(e) => setEmail(e.target.value)} title="Email" placeholder="johndoe@example.com" />
-          <InputTab onChange={(e) => setPassword(e.target.value)} title="Password" placeholder="*****" type="password" />
+          <InputTab 
+            onChange={(e) => setEmail(e.target.value)} 
+            title="Email" 
+            placeholder="johndoe@example.com" 
+            value={email}
+          />
+          <InputTab 
+            onChange={(e) => setPassword(e.target.value)} 
+            title="Password" 
+            placeholder="*****" 
+            type="password" 
+            value={password}
+          />
           <div className="pt-4">
             <Button onClick={handleSignin} btnTitle="Sign In" />
           </div>
