@@ -7,21 +7,21 @@ import SubHeading from "../Components/SubHeading";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signin = () => {
-  const [email, setEmail] = useState("");
+const Signin = () => 
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignin = async () => {
     // Check for empty input fields
-    if (!email || !password) {
+    if (!username || !password) {
       alert("Please enter both email and password.");
       return;
     }
 
     try {
       const response = await axios.post("https://paytm-u5jl.onrender.com/api/v1/user/signin", {
-        email,
+        username,
         password,
       });
 
@@ -48,7 +48,7 @@ const Signin = () => {
           <Heading heading="Sign In" />
           <SubHeading subheading="Enter your credentials to access your account" />
           <InputTab 
-            onChange={(e) => setEmail(e.target.value)} 
+            onChange={(e) => setUsername(e.target.value)} 
             title="Email" 
             placeholder="johndoe@example.com" 
             value={email}
