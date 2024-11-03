@@ -49,9 +49,9 @@ const Signin = () =>
           <SubHeading subheading="Enter your credentials to access your account" />
           <InputTab 
             onChange={(e) => setUsername(e.target.value)} 
-            title="Email" 
+            title="username" 
             placeholder="johndoe@example.com" 
-            value={email}
+            value={username}
           />
           <InputTab 
             onChange={(e) => setPassword(e.target.value)} 
